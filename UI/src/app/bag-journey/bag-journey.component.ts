@@ -1,0 +1,1 @@
+import { Component } from "@angular/core"; @Component({selector:"app-bag-journey",standalone:true,template:"<section class=\"page-placeholder\"><h2>Bag Journey</h2><p>Page shell is protected by permission-based authorization.</p></section>"}) export class BagJourneyComponent {}

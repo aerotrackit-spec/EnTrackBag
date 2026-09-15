@@ -1,0 +1,119 @@
+<!-- CONDITION A: If the user is on the login screen, ONLY show the raw login card view without layout elements -->
+@if (isLoginView()) {
+  <router-outlet></router-outlet>
+}
+
+<!-- CONDITION B: Once authenticated and on operational pages, dynamically clamp the full Sidebar and Header wrapper shell -->
+@else {
+  <div class="app-container">
+    <!-- LEFT SIDEBAR: Static Navigation Panel -->
+    <aside class="sidebar">
+      <div class="brand-logo">
+        <div class="logo-icon">🔷</div>
+        <div>
+          <h2>EnTrackBag</h2>
+          <small>Abu Dhabi Airport</small>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <div class="menu-group open">
+          <button class="menu-header">📋 Dashboard</button>
+          <div class="submenu">
+            <a
+              routerLink="/dashboard/summary"
+              routerLinkActive="active"
+              class="submenu-item"
+              >Dashboard</a
+            >
+            <a
+              routerLink="/dashboard/sla"
+              routerLinkActive="active"
+              class="submenu-item"
+              >SLA</a
+            >
+          </div>
+        </div>
+
+        <a routerLink="/tracking" class="menu-link">🔍 Tag / Bag Tracking</a>
+        <a routerLink="/reports" class="menu-link">📄 Reports</a>
+        <a routerLink="/settings" class="menu-link">⚙️ System Settings</a>
+        <a routerLink="/administration" class="menu-link">👤 Administration</a>
+      </nav>
+
+      <div class="language-toggle">
+        <button class="lang-btn active">EN</button>
+        <button class="lang-btn">العربية</button>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTAINER: Utility Topbar Header + Dynamic Subpage Viewport -->
+    <div class="workspace-wrapper">
+      <header class="utility-topbar">
+        <div class="page-title-context">
+          <h1>Dashboard</h1>
+          <p>Daily overview of baggage processing and system activity</p>
+        </div>
+
+        <div class="user-action-tray">
+          <div class="date-badge">📅 May 27, 2025</div>
+          <button class="action-circle-btn">🔄</button>
+          <div class="bell-alert-badge">
+            🔔 <span class="badge-count">12</span>
+          </div>
+
+          <div class="profile-pill">
+            <div class="avatar-circle">A</div>
+            <div class="profile-info">
+              <strong>Admin</strong>
+              <small>Super Admin</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- The inner target pages (like summary-dashboard.html) automatically mount right inside here safely -->
+      <main class="page-shell-viewport">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+}
+
+<!-- <header class="topbar">
+  <div class="brand">EnTrackBag</div>
+  <nav>
+    <a
+      *ngIf="auth.hasPermission('Dashboard.View')"
+      routerLink="/dashboard/summary"
+      routerLinkActive="active"
+      >Dashboard</a
+    ><a
+      *ngIf="auth.hasPermission('Dashboard.SLA.View')"
+      routerLink="/dashboard/sla"
+      routerLinkActive="active"
+      >SLA</a
+    ><a
+      *ngIf="auth.hasPermission('DeviceStatus.View')"
+      routerLink="/device-status"
+      routerLinkActive="active"
+      >Device &amp; System Status</a
+    ><a
+      *ngIf="auth.hasPermission('TagReport.View')"
+      routerLink="/tag-report"
+      routerLinkActive="active"
+      >Tag Report</a
+    ><a
+      *ngIf="auth.hasPermission('BagJourney.View')"
+      routerLink="/bag-journey"
+      routerLinkActive="active"
+      >Bag Journey</a
+    ><a
+      *ngIf="auth.hasPermission('Administration.View')"
+      routerLink="/administration"
+      routerLinkActive="active"
+      >Administration</a
+    >
+  </nav>
+</header>
+<main class="page-shell"><router-outlet></router-outlet></main> -->

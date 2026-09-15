@@ -1,0 +1,196 @@
+// .topbar {
+//   height: 64px;
+//   background: #fff;
+//   border-bottom: 1px solid #dfe6ef;
+//   display: flex;
+//   align-items: center;
+//   padding: 0 28px;
+//   gap: 40px;
+//   position: sticky;
+//   top: 0;
+//   z-index: 10;
+// }
+// .brand {
+//   font-size: 20px;
+//   font-weight: 700;
+//   color: #172033;
+// }
+// .topbar nav {
+//   display: flex;
+//   gap: 22px;
+// }
+// .topbar a {
+//   color: #315b91;
+//   text-decoration: none;
+//   padding: 8px 0;
+// }
+// .topbar a.active {
+//   font-weight: 700;
+//   color: #173d68;
+//   border-bottom: 2px solid #173d68;
+// }
+// .page-shell {
+//   padding: 28px;
+// }
+/* ==========================================
+   GLOBAL RESET & MAIN STRUCTURAL LAYOUT
+   ========================================== */
+
+/* Container Panel Boundaries */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================
+   METRICS GRID & HIGHER FIDELITY CARDS
+   ========================================== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.metric-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Circular Background Shields for Icons */
+.card-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+
+/* Card Specific Themes Matching Your Target Design Colors */
+.metric-card.tagged .card-icon-wrapper {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.metric-card.reclaim .card-icon-wrapper {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+.metric-card.exit .card-icon-wrapper {
+  background: #faf5ff;
+  color: #9333ea;
+}
+.metric-card.recheck .card-icon-wrapper {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.card-value {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 4px;
+}
+
+/* ==========================================
+   OPERATIONAL INTELLIGENCE MAP WRAPPER
+   ========================================== */
+.map-section-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-header-tray {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-tray h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Blinking Live Pulses */
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.dot.blinking {
+  width: 8px;
+  height: 8px;
+  background-color: #16a34a;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.refresh-time {
+  color: #64748b;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.map-viewport-placeholder {
+  min-height: 350px;
+  background: #fafafa;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+}
+
+.map-map-message {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  max-width: 400px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(22, 163, 74, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+}
